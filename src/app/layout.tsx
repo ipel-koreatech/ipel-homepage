@@ -19,16 +19,15 @@ export const metadata: Metadata = {
   },
 };
 
+// Pages are rendered per request so the CSP nonce from middleware can be applied.
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
       <head>
-        <link
-          rel="stylesheet"
-          as="style"
-          crossOrigin="anonymous"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-        />
+        {/* Self-hosted Pretendard (dynamic subset) — no third-party CDN. */}
+        <link rel="stylesheet" href="/fonts/pretendard/pretendardvariable-dynamic-subset.css" />
       </head>
       <body className="min-h-screen flex flex-col">
         <Header />
