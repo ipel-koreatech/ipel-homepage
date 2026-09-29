@@ -35,5 +35,5 @@ npm run dev
 ## 배포 (Vercel)
 
 1. 이 폴더를 GitHub 저장소에 push 합니다.
-2. https://vercel.com 에서 GitHub 저장소를 Import 하면 자동으로 빌드·배포됩니다.
+2. https://vercel.com 에서 GitHub 저장소를 Import 하면 자동으로 빌드·배포됩니다. 현재 주소: https://ipel-homepage.vercel.app
 3. 이후에는 GitHub에 push 할 때마다 자동으로 다시 배포됩니다.
