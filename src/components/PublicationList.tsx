@@ -1,14 +1,18 @@
-import { highlightAuthors, type Publication } from "@/data/publications";
+import { LAB_AUTHOR_MARK, type Publication } from "@/data/publications";
 
 function Authors({ authors }: { authors: string[] }) {
   return (
     <span>
-      {authors.map((a, i) => (
-        <span key={i}>
-          {highlightAuthors.includes(a) ? <strong className="font-semibold text-ink">{a}</strong> : a}
-          {i < authors.length - 1 ? ", " : ""}
-        </span>
-      ))}
+      {authors.map((a, i) => {
+        const isLab = a.startsWith(LAB_AUTHOR_MARK);
+        const name = isLab ? a.slice(LAB_AUTHOR_MARK.length) : a;
+        return (
+          <span key={i}>
+            {isLab ? <strong className="font-semibold text-ink">{name}</strong> : name}
+            {i < authors.length - 1 ? ", " : ""}
+          </span>
+        );
+      })}
     </span>
   );
 }

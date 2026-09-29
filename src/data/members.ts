@@ -23,11 +23,13 @@ export const members: Member[] = [
     nameKo: "양진호",
     role: "Undergraduate",
     photo: "/images/members/jinho-yang.jpg",
+    since: "2026.09.01",
   },
   {
     name: "Daewon Jang",
     nameKo: "장대원",
     role: "Undergraduate",
+    since: "2026.10.01",
   },
 ];
 
