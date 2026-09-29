@@ -17,6 +17,18 @@ export type Member = {
 //   interests: ["HVDC control", "Renewable integration"],
 //   since: "2026.03",
 // },
-export const members: Member[] = [];
+export const members: Member[] = [
+  {
+    name: "Jinho Yang",
+    nameKo: "양진호",
+    role: "Undergraduate",
+    photo: "/images/members/jinho-yang.jpg",
+  },
+  {
+    name: "Daewon Jang",
+    nameKo: "장대원",
+    role: "Undergraduate",
+  },
+];
 
 export const alumni: Member[] = [];

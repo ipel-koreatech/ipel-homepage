@@ -80,7 +80,7 @@ export default function MembersPage() {
 
         {groups.map((g) => (
           <div key={g.role}>
-            <div className="eyebrow">{g.role}s</div>
+            <div className="eyebrow">{g.role === "Undergraduate" ? "Undergraduate Researchers" : `${g.role}s`}</div>
             <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {g.list.map((m) => (
                 <MemberCard key={m.name} m={m} />
