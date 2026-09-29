@@ -8,12 +8,12 @@ export type NewsItem = {
 export const news: NewsItem[] = [
   {
     date: "2026.10.01",
-    title: "Daewon Jang (장대원) joins IPEL as an undergraduate researcher",
+    title: "장대원 학부연구생이 IPEL에 합류했습니다. 환영합니다!",
     body: "학부연구생 장대원 학생이 연구실에 합류했습니다. Welcome!",
   },
   {
     date: "2026.09.01",
-    title: "Jinho Yang (양진호) joins IPEL as an undergraduate researcher",
+    title: "양진호 학부연구생이 IPEL에 합류했습니다. 환영합니다!",
     body: "학부연구생 양진호 학생이 연구실에 합류했습니다. Welcome!",
   },
   {
