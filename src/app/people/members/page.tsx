@@ -16,7 +16,15 @@ const peopleNav = [
 
 const order: Member["role"][] = ["Post-Doc", "Ph.D. Student", "M.S. Student", "Undergraduate"];
 
-function MemberCard({ m }: { m: Member }) {
+function roleLine(m: Member, former: boolean) {
+  if (!former) return `${m.role}${m.since ? ` · since ${m.since}` : ""}`;
+  const role = m.role === "Undergraduate" ? "Undergraduate Researcher" : m.role;
+  if (m.since && m.until) return `${role} · ${m.since} – ${m.until}`;
+  if (m.since) return `${role} · joined ${m.since}`;
+  return role;
+}
+
+function MemberCard({ m, former = false }: { m: Member; former?: boolean }) {
   return (
     <li className="card flex gap-4 p-5">
       <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-paper-2">
@@ -32,7 +40,7 @@ function MemberCard({ m }: { m: Member }) {
         <div className="font-semibold">
           {m.name} {m.nameKo && <span className="font-normal text-muted">({m.nameKo})</span>}
         </div>
-        <div className="text-sm text-accent-ink">{m.role}{m.since ? ` · since ${m.since}` : ""}</div>
+        <div className="text-sm text-accent-ink">{roleLine(m, former)}</div>
         {m.email && (
           <a href={`mailto:${m.email}`} className="mt-1 block truncate text-sm text-muted hover:text-ink">
             {m.email}
@@ -56,7 +64,7 @@ export default function MembersPage() {
       </PageHeader>
 
       <section className="container-x mt-14 space-y-12">
-        {groups.length === 0 && (
+        {groups.length === 0 && alumni.length === 0 && (
           <div className="card p-8 md:p-12">
             <h2 className="text-xl font-semibold">We are building our team.</h2>
             <p className="mt-2 max-w-2xl text-muted">
@@ -94,7 +102,7 @@ export default function MembersPage() {
             <div className="eyebrow">Alumni</div>
             <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {alumni.map((m) => (
-                <MemberCard key={m.name} m={m} />
+                <MemberCard key={m.name} m={m} former />
               ))}
             </ul>
           </div>

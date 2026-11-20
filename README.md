@@ -20,9 +20,10 @@ npm run dev
 | --- | --- |
 | `src/data/site.ts` | 연구실 이름, 이메일, 전화, 주소, 모집 문구, 상단 메뉴 |
 | `src/data/professor.ts` | 교수 프로필, 학력, 경력, 관심 분야, 외부 링크(Scholar 등) |
-| `src/data/members.ts` | 구성원 목록 (주석의 예시 형식대로 추가) |
+| `src/data/members.ts` | 구성원 목록과 Alumni (주석의 예시 형식대로 추가) |
 | `src/data/research.ts` | 연구 분야 3개와 세부 주제 |
 | `src/data/projects.ts` | 연구 과제 목록 |
+| `src/data/consulting.ts` | 자문 실적 (항목이 있으면 Projects 페이지에 Consulting & Advisory 란 표시) |
 | `src/data/publications.ts` | 논문 목록 (`doi`를 넣으면 제목에 링크가 생김) |
 | `src/data/news.ts` | 홈 화면 News 목록 (최신 항목을 맨 위에) |
 

@@ -5,7 +5,8 @@ export type Member = {
   email?: string;
   interests?: string[];
   photo?: string; // 예: /images/members/hong.jpg (public/images/members/ 에 저장)
-  since?: string; // 예: 2026.03
+  since?: string; // 합류 시기. 예: 2026.03
+  until?: string; // 졸업·종료 시기 (Alumni 용). 예: 2027.02
 };
 
 // 구성원이 확정되면 아래 형식으로 추가하세요.
@@ -19,13 +20,6 @@ export type Member = {
 // },
 export const members: Member[] = [
   {
-    name: "Jinho Yang",
-    nameKo: "양진호",
-    role: "Undergraduate",
-    photo: "/images/members/jinho-yang.jpg",
-    since: "2026.09.01",
-  },
-  {
     name: "Daewon Jang",
     nameKo: "장대원",
     role: "Undergraduate",
@@ -33,4 +27,13 @@ export const members: Member[] = [
   },
 ];
 
-export const alumni: Member[] = [];
+// 졸업·종료한 구성원. role 에는 재적 당시 과정을 적습니다.
+export const alumni: Member[] = [
+  {
+    name: "Jinho Yang",
+    nameKo: "양진호",
+    role: "Undergraduate",
+    photo: "/images/members/jinho-yang.jpg",
+    since: "2026.09.01",
+  },
+];
