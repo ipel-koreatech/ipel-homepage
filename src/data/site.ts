@@ -1,4 +1,6 @@
 export const site = {
+  // 사이트 대표 주소. 주소가 바뀌면 이 한 줄만 고치면 됩니다.
+  url: "https://ipel.koreatech.ac.kr",
   name: "IPEL",
   fullName: "Innovative Power & Energy Laboratory",
   koreanName: "차세대 전력계통연구실",

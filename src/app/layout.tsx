@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ipel-koreatech.vercel.app"),
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} | ${site.fullName}`,
     template: `%s | ${site.name}`,
