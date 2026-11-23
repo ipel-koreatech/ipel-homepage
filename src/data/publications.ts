@@ -118,4 +118,13 @@ export const publications: Publication[] = [
     year: 2017,
     type: "journal",
   },
+
+  // ---------- 학술대회 논문 (type: "conference") ----------
+  {
+    authors: ["김수민", "강석준", "김민석", "이민지", "장길수", "*이정훈"],
+    title: "드룹 계수 변화에 따른 MMC-MTDC 소신호 안정도 분석",
+    venue: "대한전기학회 전력기술부문회 추계학술대회",
+    year: 2026,
+    type: "conference",
+  },
 ];
