@@ -23,6 +23,7 @@ export const members: Member[] = [
     name: "Daewon Jang",
     nameKo: "장대원",
     role: "Undergraduate",
+    photo: "/images/members/daewon-jang.jpg",
     since: "2026.10.01",
   },
 ];
