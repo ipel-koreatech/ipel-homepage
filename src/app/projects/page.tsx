@@ -16,7 +16,7 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Projects"
         title="Research Projects"
-        subtitle="산학 및 정부 과제 수행 이력. Sponsored research on HVDC, renewable integration and future power system planning."
+        subtitle="산학 및 정부 과제 수행 이력과 기술 자문. Sponsored research and advisory work on HVDC, renewable integration and future power system planning."
       />
 
       <section className="container-x mt-14 space-y-16">
@@ -32,7 +32,13 @@ export default function ProjectsPage() {
                 {list.map((p, i) => (
                   <li key={i} className="grid gap-2 py-5 md:grid-cols-[11rem_1fr_auto] md:gap-6">
                     <div className="text-sm text-muted">{p.period}</div>
-                    <div className="font-medium leading-snug">{p.title}</div>
+                    <div>
+                      <div className="font-medium leading-snug">{p.title}</div>
+                      {p.titleKo && <div className="mt-1 text-sm text-muted">{p.titleKo}</div>}
+                      {p.partner && (
+                        <div className="mt-1 text-sm text-ink-2">Joint research with {p.partner}</div>
+                      )}
+                    </div>
                     <div className="text-sm text-ink-2 md:text-right">
                       <span className="rounded-full bg-paper-2 px-3 py-1">{p.sponsor}</span>
                     </div>
@@ -55,6 +61,8 @@ export default function ProjectsPage() {
                   <div className="text-sm text-muted">{c.period}</div>
                   <div>
                     <div className="font-medium leading-snug">{c.title}</div>
+                    {c.titleKo && <div className="mt-1 text-sm text-muted">{c.titleKo}</div>}
+                    {c.clientKo && <div className="mt-1 text-sm text-ink-2">{c.clientKo}</div>}
                     {c.role && <div className="mt-1 text-sm text-muted">{c.role}</div>}
                   </div>
                   <div className="text-sm text-ink-2 md:text-right">

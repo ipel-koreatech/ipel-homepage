@@ -1,11 +1,23 @@
 export type Project = {
   title: string;
+  titleKo?: string; // 한글 과제명 (있으면 영문 제목 아래에 표시)
   sponsor: string;
+  partner?: string; // 공동 수행 기관. 예: "Kwangwoon University"
   period: string;
   affiliation: "KOREATECH" | "Korea University";
 };
 
 export const projects: Project[] = [
+  {
+    title:
+      "Establishment of grid-forming functional requirements and performance levels, and development of an AC emulation operation strategy for the Saemangeum–Seohwaseong HVDC",
+    titleKo:
+      "새만금-서화성 HVDC 적용을 위한 Grid Forming 요구기능 및 성능수준 정립과 AC Emulation 운전전략 개발",
+    sponsor: "Hyosung Heavy Industries",
+    partner: "Kwangwoon University",
+    period: "Oct 2026 – Mar 2027",
+    affiliation: "KOREATECH",
+  },
   {
     title: "VSC HVDC control strategy development for renewable energy integration",
     sponsor: "KOREATECH",
