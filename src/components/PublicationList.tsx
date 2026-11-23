@@ -1,6 +1,6 @@
 import { LAB_AUTHOR_MARK, type Publication } from "@/data/publications";
 
-function Authors({ authors }: { authors: string[] }) {
+export function AuthorList({ authors }: { authors: string[] }) {
   return (
     <span>
       {authors.map((a, i) => {
@@ -50,7 +50,7 @@ export default function PublicationList({ items }: { items: Publication[] }) {
                         )}
                       </div>
                       <div className="mt-1 text-sm text-muted">
-                        <Authors authors={p.authors} />
+                        <AuthorList authors={p.authors} />
                       </div>
                       <div className="mt-1 text-sm">
                         <em className="text-ink-2">{p.venue}</em>

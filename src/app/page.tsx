@@ -7,10 +7,13 @@ import { publications } from "@/data/publications";
 import { projects } from "@/data/projects";
 
 const stats = [
-  { label: "SCIE Journal Papers", value: publications.filter((p) => p.type === "journal").length },
+  { label: "SCIE Journal Papers", value: publications.filter((p) => p.type === "journal" && !p.status).length },
   { label: "Research Projects", value: projects.length },
   { label: "Research Areas", value: researchAreas.length },
 ];
+
+// 홈 첫 화면에 보여줄 최신 소식 개수
+const HOME_NEWS_COUNT = 4;
 
 export default function HomePage() {
   return (
@@ -28,40 +31,61 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Hero */}
-      <section className="container-x flex flex-col items-center py-20 text-center md:py-28">
-        <div className="fade-up">
-          <Image src="/images/emblem.png" alt="IPEL emblem" width={96} height={117} priority />
+      {/* Hero + latest news */}
+      <section className="container-x grid items-center gap-10 py-10 md:py-14 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <div className="fade-up">
+            <Image src="/images/emblem.png" alt="IPEL emblem" width={76} height={93} priority />
+          </div>
+          <h1 className="mt-6 text-5xl font-extrabold tracking-[0.18em] md:text-6xl fade-up-2">IPEL</h1>
+          <p className="mt-3 text-xl font-semibold text-ink-2 md:text-2xl fade-up-2">{site.fullName}</p>
+          <p className="mt-1 text-muted fade-up-3">
+            {site.koreanName} · {site.universityKo}
+          </p>
+          <p className="mt-6 max-w-xl text-balance text-ink-2 md:text-lg fade-up-3">
+            We are a research group focusing on the next generation power system including HVDC,
+            FACTS and renewable energy.
+          </p>
+          <p className="mt-2 max-w-xl text-balance text-sm text-muted fade-up-3">
+            우리 연구실은 송전망 해석 및 계획 분야를 주로 연구하며, 미래 전력계통의 핵심 구성요소인
+            HVDC, FACTS 및 신재생에너지원이 포함된 계통을 다룹니다.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start fade-up-3">
+            <Link
+              href="/research"
+              className="rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-white transition hover:bg-ink-2"
+            >
+              Our Research
+            </Link>
+            <Link
+              href="/people"
+              className="rounded-full border border-line px-6 py-2.5 text-sm font-medium transition hover:border-ink"
+            >
+              People
+            </Link>
+          </div>
         </div>
-        <h1 className="mt-8 text-5xl font-extrabold tracking-[0.18em] md:text-7xl fade-up-2">
-          IPEL
-        </h1>
-        <p className="mt-4 text-xl font-semibold text-ink-2 md:text-2xl fade-up-2">{site.fullName}</p>
-        <p className="mt-1 text-muted fade-up-3">
-          {site.koreanName} · {site.universityKo}
-        </p>
-        <p className="mt-8 max-w-2xl text-balance text-ink-2 md:text-lg fade-up-3">
-          We are a research group focusing on the next generation power system including HVDC,
-          FACTS and renewable energy.
-        </p>
-        <p className="mt-2 max-w-2xl text-balance text-sm text-muted fade-up-3">
-          우리 연구실은 송전망 해석 및 계획 분야를 주로 연구하며, 미래 전력계통의 핵심 구성요소인
-          HVDC, FACTS 및 신재생에너지원이 포함된 계통을 다룹니다.
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-3 fade-up-3">
-          <Link
-            href="/research"
-            className="rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-white transition hover:bg-ink-2"
-          >
-            Our Research
-          </Link>
-          <Link
-            href="/people"
-            className="rounded-full border border-line px-6 py-2.5 text-sm font-medium transition hover:border-ink"
-          >
-            People
-          </Link>
-        </div>
+
+        <aside id="news" className="scroll-mt-24 rounded-2xl border border-line bg-white p-6 md:p-7 fade-up-2">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <div className="eyebrow">News</div>
+              <h2 className="mt-1 text-xl font-bold tracking-tight">Latest updates</h2>
+            </div>
+            <Link href="/news" className="text-sm font-medium text-ink-2 hover:text-ink">
+              View all →
+            </Link>
+          </div>
+          <ol className="mt-4 divide-y divide-line">
+            {news.slice(0, HOME_NEWS_COUNT).map((n, i) => (
+              <li key={i} className="py-3.5 last:pb-0">
+                <time className="text-xs font-medium text-accent-ink">{n.date}</time>
+                <div className="mt-0.5 font-medium leading-snug">{n.title}</div>
+                {n.body && <p className="mt-1 line-clamp-2 text-sm text-muted">{n.body}</p>}
+              </li>
+            ))}
+          </ol>
+        </aside>
       </section>
 
       {/* Three cards */}
@@ -92,7 +116,7 @@ export default function HomePage() {
             member of our group.
           </p>
         </Link>
-        <Link href="/#news" className="card p-6">
+        <Link href="/news" className="card p-6">
           <div className="accent-gradient flex h-11 w-11 items-center justify-center rounded-xl text-white">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
@@ -168,23 +192,6 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
-      </section>
-
-      {/* News */}
-      <section id="news" className="container-x mt-24 scroll-mt-24">
-        <div className="eyebrow">News</div>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight">Latest updates</h2>
-        <ol className="mt-8 divide-y divide-line border-y border-line">
-          {news.map((n, i) => (
-            <li key={i} className="grid gap-1 py-5 sm:grid-cols-[8rem_1fr]">
-              <time className="text-sm text-muted">{n.date}</time>
-              <div>
-                <div className="font-medium">{n.title}</div>
-                {n.body && <p className="mt-1 text-sm text-muted">{n.body}</p>}
-              </div>
-            </li>
-          ))}
-        </ol>
       </section>
 
       {/* CTA */}

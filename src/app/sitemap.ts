@@ -11,6 +11,7 @@ const routes = [
   "/research",
   "/projects",
   "/publications",
+  "/news",
   "/contact",
 ];
 

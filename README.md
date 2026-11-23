@@ -24,8 +24,8 @@ npm run dev
 | `src/data/research.ts` | 연구 분야 3개와 세부 주제 |
 | `src/data/projects.ts` | 연구 과제 목록 |
 | `src/data/consulting.ts` | 자문 실적 (항목이 있으면 Projects 페이지에 Consulting & Advisory 란 표시) |
-| `src/data/publications.ts` | 논문 목록 (`doi`를 넣으면 제목에 링크가 생김) |
-| `src/data/news.ts` | 홈 화면 News 목록 (최신 항목을 맨 위에) |
+| `src/data/publications.ts` | 논문 목록 (`doi`를 넣으면 제목에 링크, `status: "under review"` 를 넣으면 심사 중 란에 표시) |
+| `src/data/news.ts` | 소식 목록 (최신 항목을 맨 위에). 홈 첫 화면에는 최신 4건, 전체는 /news 페이지 |
 
 사진은 `public/images/` 에 넣습니다.
 

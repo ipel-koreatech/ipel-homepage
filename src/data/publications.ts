@@ -5,6 +5,9 @@ export type Publication = {
   year: number;
   type: "journal" | "conference";
   doi?: string; // 예: 10.1109/ACCESS.2024.xxxxxxx
+  // 심사 중인 논문에만 적습니다. 게재가 확정되면 이 두 줄을 지우면 일반 목록으로 옮겨집니다.
+  status?: "under review";
+  submitted?: string; // 투고 시기. 예: "Aug 2026"
 };
 
 /**
@@ -14,6 +17,16 @@ export type Publication = {
 export const LAB_AUTHOR_MARK = "*";
 
 export const publications: Publication[] = [
+  {
+    authors: ["*J Lee", "J Jang", "M Yoon"],
+    title:
+      "Energy-Efficient Triangular Frequency Support of Coordinated Wind Turbines and E-STATCOMs: A Closed-Form Approach",
+    venue: "IEEE Transactions on Power Systems",
+    year: 2026,
+    type: "journal",
+    status: "under review",
+    submitted: "Aug 2026",
+  },
   {
     authors: ["*J Lee", "M Yoon", "G Jang"],
     title: "Analytical Approach for Novel Temporary Frequency Support Control of VSC HVDC",
