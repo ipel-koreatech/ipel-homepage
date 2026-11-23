@@ -120,6 +120,14 @@ export const publications: Publication[] = [
   },
 
   // ---------- 학술대회 논문 (type: "conference") ----------
+  // Publications 페이지의 Conference Papers 란에 따로 표시됩니다.
+  {
+    authors: ["*이정훈", "장정수", "윤민한"],
+    title: "주파수 보조를 위한 풍력발전기와 E-STATCOM의 협조제어 기법에 관한 연구",
+    venue: "대한전기학회 전력기술부문회 추계학술대회",
+    year: 2026,
+    type: "conference",
+  },
   {
     authors: ["김수민", "강석준", "김민석", "이민지", "장길수", "*이정훈"],
     title: "드룹 계수 변화에 따른 MMC-MTDC 소신호 안정도 분석",
